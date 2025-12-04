@@ -1,8 +1,11 @@
 package com.lvhack.hud;
 
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.math.Vec3d;
 import org.w3c.dom.Text;
 
 
@@ -26,23 +29,29 @@ public class Hud {
         //render text
         RenderEngineUtil.textRender(context, "x: " + x + " y: " + y + "z: " + z, 5,  20);
     }
-    public static void header(MinecraftClient client, DrawContext context) {
+    public static void waterMark(MinecraftClient client, DrawContext context) {
         String clientName = "lvhack";
         //render text
         RenderEngineUtil.textRender(context, clientName, 5,  30);
     }
 
-    public static void hello(MinecraftClient client, DrawContext context) {
+    public static void welcome(MinecraftClient client, DrawContext context) {
         String userNickName = client.player.getName().getString();
         //render text
-        RenderEngineUtil.textRender(context, "Hello " + userNickName, 5,  40);
+        RenderEngineUtil.textRender(context, "welcone, " + userNickName + "!!!", 5,  40);
+    }
+    public static void speed(MinecraftClient client, DrawContext context) {
+
+
+
     }
 
     public static void hud(DrawContext context){
         MinecraftClient client = MinecraftClient.getInstance();
         getPlayerFps(client, context);
         getPlayerPosition(client,context);
-        header(client,context);
-        hello(client, context);
+        waterMark(client,context);
+        welcome(client, context);
+        speed(client, context);
     }
 }
