@@ -27,7 +27,7 @@ public class Hud {
        double z = (int) client.player.getZ();
 
         //render text
-        RenderEngineUtil.textRender(context, "x: " + x + " y: " + y + "z: " + z, 3, h - 15);
+        RenderEngineUtil.textRender(context, "x: " + x + " y: " + y + "z: " + z, 3, h - 12);
     }
     public static void waterMark(MinecraftClient client, DrawContext context, int w, int h) {
         String clientName = "lvhack";
@@ -49,8 +49,8 @@ public class Hud {
 
     }
     public static void directrion(MinecraftClient client, DrawContext context, int w, int h) {
-
-
+        String direction = client.player.getMovementDirection().toString();
+        RenderEngineUtil.textRender(context, "Direction: , " + direction, 5,  h - 33);
     }
 
     public static void hud(DrawContext context){
