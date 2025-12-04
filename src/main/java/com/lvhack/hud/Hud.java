@@ -27,7 +27,7 @@ public class Hud {
        double z = (int) client.player.getZ();
 
         //render text
-        RenderEngineUtil.textRender(context, "x: " + x + " y: " + y + "z: " + z, 3, h - 100);
+        RenderEngineUtil.textRender(context, "x: " + x + " y: " + y + "z: " + z, 3, h - 15);
     }
     public static void waterMark(MinecraftClient client, DrawContext context, int w, int h) {
         String clientName = "lvhack";
@@ -45,7 +45,7 @@ public class Hud {
         double speedZ = client.player.getVelocity().z * 20;
         double speeds = Math.sqrt(speedX * speedX + speedZ * speedZ);
         String speed = String.format("%.2f", speeds);
-        RenderEngineUtil.textRender(context, "Speed, " + speed, 5,  h - 25);
+        RenderEngineUtil.textRender(context, "Speed, " + speed, 5,  h - 22);
 
     }
     public static void directrion(MinecraftClient client, DrawContext context, int w, int h) {
@@ -60,11 +60,11 @@ public class Hud {
 
 
 
-        getPlayerFps(client, context, height, width);
-        getPlayerPosition(client,context, height, width);
-        waterMark(client,context, height, width);
-        welcome(client, context, height, width);
-        speed(client, context, height, width);
-        directrion(client, context, height, width);
+        getPlayerFps(client, context, width, height);
+        getPlayerPosition(client,context, width, height);
+        waterMark(client,context, width, height);
+        welcome(client, context, width, height);
+        speed(client, context,width, height);
+        directrion(client, context, width, height);
     }
 }
