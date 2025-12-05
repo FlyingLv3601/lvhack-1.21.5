@@ -30,9 +30,9 @@ public class Hud {
         RenderEngineUtil.textRender(context, "x: " + x + " y: " + y + "z: " + z, 3, h - 12);
     }
     public static void waterMark(MinecraftClient client, DrawContext context, int w, int h) {
-        String clientName = "lvhack";
+        String clientName = "lvhack 1.21.5";
         //render text
-        RenderEngineUtil.textRender(context, clientName, 5,  5);
+        RenderEngineUtil.textRender(context, clientName, 3,  5);
     }
 
     public static void welcome(MinecraftClient client, DrawContext context, int w, int h) {
@@ -45,20 +45,18 @@ public class Hud {
         double speedZ = client.player.getVelocity().z * 20;
         double speeds = Math.sqrt(speedX * speedX + speedZ * speedZ);
         String speed = String.format("%.2f", speeds);
-        RenderEngineUtil.textRender(context, "Speed, " + speed, 5,  h - 22);
+        RenderEngineUtil.textRender(context, "Speed, " + speed, 3,  h - 22);
 
     }
     public static void directrion(MinecraftClient client, DrawContext context, int w, int h) {
         String direction = client.player.getMovementDirection().toString();
-        RenderEngineUtil.textRender(context, "Direction: , " + direction, 5,  h - 33);
+        RenderEngineUtil.textRender(context, "Direction: " + direction, 3,  h - 33);
     }
 
     public static void hud(DrawContext context){
         MinecraftClient client = MinecraftClient.getInstance();
         int width = client.getWindow().getScaledWidth();
         int height = client.getWindow().getScaledHeight();
-
-
 
         getPlayerFps(client, context, width, height);
         getPlayerPosition(client,context, width, height);
