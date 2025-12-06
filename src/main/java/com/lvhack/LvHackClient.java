@@ -38,7 +38,7 @@ public class LvHackClient implements ClientModInitializer {
 
         HudRenderCallback.EVENT.register((DrawContext, world) -> {
             if(openGui == true){
-                ClickGui.categoryDraw(DrawContext);
+                ClickGui.ClickGuiRender(DrawContext);
             }
         });
 

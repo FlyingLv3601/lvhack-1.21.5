@@ -13,9 +13,6 @@ import com.lvhack.utils.RenderEngineUtil;
 
 public class Hud {
 
-
-
-
     public static void getPlayerFps(MinecraftClient client, DrawContext context, int w, int h) {
         int fps = client.getCurrentFps();
         //render text
@@ -52,6 +49,9 @@ public class Hud {
         String direction = client.player.getMovementDirection().toString();
         RenderEngineUtil.textRender(context, "Direction: " + direction, 3,  h - 33);
     }
+
+
+
 
     public static void hud(DrawContext context){
         MinecraftClient client = MinecraftClient.getInstance();
