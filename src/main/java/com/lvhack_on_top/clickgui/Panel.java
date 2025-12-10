@@ -17,14 +17,10 @@ public class Panel {
     Category category;
 
     private final List<ModuleButton> buttons = new ArrayList<>();
-
-    // Конструктор с передачей категории и списка всех модулей
     public Panel(Category category, float X, float Y, List<Modules> allModules) {
         this.category = category;
         this.x = X;
         this.y = Y;
-
-        // Создаем кнопки только для модулей этой категории
         for (Modules m : allModules) {
             if (m.getCat() == category) {
                 buttons.add(new ModuleButton(m));
@@ -35,22 +31,18 @@ public class Panel {
     public void render(DrawContext context, int mouseX, int mouseY) {
         MinecraftClient mc = MinecraftClient.getInstance();
 
-        // Фон панели
-        context.fill((int) x, (int) y, (int) (x + width), (int) (y + height), 0x80000000);
-        // Заголовок
-        context.fill((int) x, (int) y, (int) (x + width), (int) (y + 16), 0xFF2A2A2A);
-        context.drawCenteredTextWithShadow(mc.textRenderer, category.name(), (int) (x + width / 2), (int) y + 4, 0xFFFFFFFF);
+        context.fill((int) x, (int) y, (int) (x + width), (int) (y + height), 0xFF1f1432 );
+        context.fill((int) x, (int) y, (int) (x + width), (int) (y + 16), 0xFF4f3075 );
+        context.drawCenteredTextWithShadow(mc.textRenderer, category.name(), (int) (x + width / 2), (int) y + 4, 0xFFFFFFFF );
 
-        // Рисуем кнопки
         int btnY = (int) (y + 16);
         for (ModuleButton btn : buttons) {
             btn.render(context, (int) x + 2, btnY);
-            btnY += 14; // отступ между кнопками
+            btnY += 14;
         }
     }
 
     public boolean mouseClicked(int mx, int my, int button) {
-        // Перетаскивание заголовка
         if (mx >= x && mx <= x + width && my >= y && my <= y + 16) {
             dragging = true;
             dragX = mx - x;
@@ -58,7 +50,6 @@ public class Panel {
             return true;
         }
 
-        // Клик по кнопкам
         int btnY = (int) (y + 16);
         for (ModuleButton btn : buttons) {
             if (mx >= x && mx <= x + width && my >= btnY && my <= btnY + 12) { // 12 = высота кнопки
