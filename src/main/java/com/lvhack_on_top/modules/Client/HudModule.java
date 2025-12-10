@@ -12,6 +12,6 @@ public class HudModule extends Modules {
 
     @Override
     public void onEnable() {
-        
+        //renderhud
     }
 }
