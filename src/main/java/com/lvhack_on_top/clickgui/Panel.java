@@ -37,8 +37,8 @@ public class Panel {
 
         int btnY = (int) (y + 16);
         for (ModuleButton btn : buttons) {
-            btn.render(context, (int) x + 2, btnY);
-            btnY += 14;
+            btn.render(context, (int) x, btnY);
+            btnY += 20;
         }
     }
 
@@ -52,11 +52,11 @@ public class Panel {
 
         int btnY = (int) (y + 16);
         for (ModuleButton btn : buttons) {
-            if (mx >= x && mx <= x + width && my >= btnY && my <= btnY + 12) { // 12 = высота кнопки
+            if (mx >= x && mx <= x + width && my >= btnY && my <= btnY + 20) {
                 btn.onClick(button);
                 return true;
             }
-            btnY += 14;
+            btnY += 20;
         }
 
         return false;
