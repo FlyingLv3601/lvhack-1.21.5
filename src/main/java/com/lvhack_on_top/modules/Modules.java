@@ -1,17 +1,19 @@
 /*
 code by LV3601
 блять вам буду кто спиздит пизды дам ебаный рот я пока понял как эту поебатню написать помер 3 раза сука
- */
+*/
 
 package com.lvhack_on_top.modules;
 
 import net.minecraft.client.MinecraftClient;
 
 public abstract class Modules {
-    public MinecraftClient mc =  MinecraftClient.getInstance();
+    public MinecraftClient mc = MinecraftClient.getInstance();
     private final String name;
     private final Category category;
     private boolean enabled = false;
+
+    protected boolean enabledOnStart = false;
 
     public Modules(String name, Category category) {
         this.name = name;
@@ -20,8 +22,8 @@ public abstract class Modules {
 
     public void toggle() {
         this.enabled = !this.enabled;
-        if (enabled){onEnable();}
-        else{onDisable();}
+        if (enabled) onEnable();
+        else onDisable();
     }
 
     public void onEnable() {}
@@ -44,4 +46,7 @@ public abstract class Modules {
         this.enabled = enabled;
     }
 
+    public boolean isEnabledOnStart() {
+        return enabledOnStart;
+    }
 }

@@ -18,6 +18,12 @@ public class ModuleManager {
         addModule(new ColorModules());
         addModule(new HudModule());
 
+        for (Modules module : modules) {
+            if (module.isEnabledOnStart()) {
+                module.setEnabled(true);
+                module.onEnable();
+            }
+        }
     }
 
     public static List<Modules> getModules() {
@@ -33,5 +39,4 @@ public class ModuleManager {
         }
         return catModules;
     }
-
 }

@@ -19,6 +19,7 @@ public class ModuleButton {
 
         int textColor = module.isEnabled() ? 0xFFE884E8 : 0xFF8f54c4;
         context.drawTextWithShadow(MinecraftClient.getInstance().textRenderer, module.getName(), x + 4, y + 6, textColor);
+
     }
 
     public void onClick(int button) {
